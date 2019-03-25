@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]='registerForm'>
+    <ion-list>
+
+
+      <ion-item>
+        <ion-label position="floating">
+          Nombres
+        </ion-label>
+      <ion-input id="inputnombres" formControlName="nombres" type="text" [(ngModel)]="usuario.nombres"></ion-input>
+      </ion-item>
+
+      <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.nombres">
+          <div class="error-message" *ngIf="registerForm.get('nombres').hasError(error.type) && (registerForm.get('nombres').dirty || registerForm.get('nombres').touched)">
+            {{error.message}}
+          </div>
+        </ng-container>
+        </div>
+
+
+      <ion-item>
+        <ion-label position="floating">
+          Apellidos
+        </ion-label>
+      <ion-input id="inputapellidos" formControlName="apellidos" type="text" [(ngModel)]="usuario.apellidos"></ion-input>
+      </ion-item>
+
+      <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.apellidos">
+          <div class="error-message" *ngIf="registerForm.get('apellidos').hasError(error.type) && (registerForm.get('apellidos').dirty || registerForm.get('apellidos').touched)">
+            {{error.message}}
+          </div>
+        </ng-container>
+        </div>
+
+
+
+
+        <ion-item>
+          <ion-label position="floating">
+            Edad
+          </ion-label>
+        <ion-input id="inputedad" formControlName="edad" type="text" [(ngModel)]="usuario.edad"></ion-input>
+        </ion-item>
+
+        <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.edad">
+          <div class="error-message" *ngIf="registerForm.get('edad').hasError(error.type) && (registerForm.get('edad').dirty || registerForm.get('edad').touched)">
+            {{error.message}}
+          </div>
+        </ng-container>
+        </div>
+
+      <ion-item>
+            <ion-label position="floating">
+                <ion-icon name="mail"></ion-icon>
+                 Email
+            </ion-label>
+            <ion-input id="inputemail" formControlName="email" type="text" [(ngModel)]="usuario.email"></ion-input>
+        </ion-item>
+          
+          <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.email">
+              <div class="error-message" *ngIf="registerForm.get('email').hasError(error.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                {{error.message}}
+              </div>
+            </ng-container>
+          </div>
+
+
+          <ion-item>
+              <ion-label position="floating">
+                 <ion-icon name="key"></ion-icon>
+                Contraseña
+              </ion-label>
+            <ion-input id="inputpassword" formControlName="password" type="password" [(ngModel)]="usuario.password"></ion-input>
+          </ion-item>
+        
+          <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message" *ngIf="registerForm.get('password').hasError(error.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                {{error.message}}
+              </div>
+            </ng-container>
+          </div>
+
+    </ion-list>
+    <ion-button [disabled]="!registerForm.valid" color="dark" (click)="registrarse(usuario)">Registrarse</ion-button>
+    <ion-button color="light" (click)="atras()">Atrás</ion-button>
+  </form>
+</ion-content>

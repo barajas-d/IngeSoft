@@ -1,0 +1,7 @@
+{
+  "name": "javeSalud",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
