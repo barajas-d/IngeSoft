@@ -21,4 +21,9 @@ export class NutricionPage implements OnInit {
   atras(){
     this.navCtrl.navigateForward('userhome');
   }
+
+  dietaClick(){
+    this.navCtrl.navigateForward('dieta');
+  }
+
 }

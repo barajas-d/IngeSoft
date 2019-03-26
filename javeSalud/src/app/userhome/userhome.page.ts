@@ -77,6 +77,9 @@ export class UserhomePage implements OnInit {
   nutricionClick(){
     this.navCtrl.navigateForward('nutricion');
   }
+  ejerciciosClick(){
+    this.navCtrl.navigateForward('planes-ejercicios');
+  }
   micuentaClick(){
     this.router.navigate(['/micuenta',{ userEmail: this.usuario.email}]);
   }
