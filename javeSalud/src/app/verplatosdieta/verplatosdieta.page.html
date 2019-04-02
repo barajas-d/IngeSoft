@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ver platos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>  
+     <ion-item *ngFor="let item of listaPlatosRef$ | async">
+        <ion-card (click)="elementoSeleccionado(item,item.key)"> 
+        <ion-card-header>
+          <ion-card-title>{{item.nombre}}</ion-card-title>
+          <ion-card-subtitle>{{item.descripcion}}</ion-card-subtitle>
+           <ion-card-subtitle>{{item.key}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+        </ion-card-content>
+        <img src={{item.imagen}}/>
+      </ion-card>
+     
+     </ion-item>
+   </ion-list>
+   <ion-button color="light" (click)="atras()">Atrás</ion-button>
+
+</ion-content>

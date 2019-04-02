@@ -24,12 +24,12 @@ export class NutricionadminPage implements OnInit {
   constructor(public router: Router,public storage: Storage,public navCtrl: NavController, private database: AngularFireDatabase, private actionSheet: ActionSheetController) { 
 
     this.itemsRef = database.list('dieta');
-    // Use snapshotChanges().map() to store the key
     this.items = this.itemsRef.snapshotChanges().pipe(
       map(changes => 
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     );
+
   }
 
   ngOnInit() {
@@ -42,18 +42,45 @@ export class NutricionadminPage implements OnInit {
       console.log('Swipe All', event);//direction 2 = right to left swipe.
     } 
   }
-  agregarDieta(dieta:Dieta){
-    this.itemsRef.push(dieta);
+
+  agregarDieta(){
+    this.router.navigate(['/agregardieta',{ }]);
   }
+  agregarPlato(){
+    this.router.navigate(['/agregarplato',{ }]);
+  }
+
   eliminar(dieta:Dieta){
       const itemsRef = this.database.list('dieta');
      
     }
 
     async elementoSeleccionado(dieta:Dieta,key:string){
+      var texto="Publicar";
+      if(dieta.visible===true){
+        texto = "No publicar";
+        console.log("VISIBLE");
+      }
       const action = await this.actionSheet.create({
-        header:`${dieta.descripcion}`,
+        header:`${dieta.nombre}`,
         buttons: [
+          {
+            text: texto,
+            handler: () => {
+              if(texto==="Publicar"){
+                dieta.visible=true;
+              }else{
+                dieta.visible=false;
+              }
+              this.itemsRef.update(key,dieta);
+            }
+          },
+          {
+            text: 'Ver platos de la dieta',
+            handler: () => {
+              this.router.navigate(['/verplatosdieta',{ dietaID: key, rol: 1, email: 'admin@gmail.com'}]);
+            }
+          },
           {
             text: 'Editar',
             handler: () => {

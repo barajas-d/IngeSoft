@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CREAR PLATO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+          <ion-label position="floating">
+             <ion-icon name="mail"></ion-icon>
+              Nombre del plato
+          </ion-label>
+          <ion-input id="inputnombreplato" type="text" [(ngModel)]="plato.nombre"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+            <ion-label position="floating">
+               <ion-icon name="mail"></ion-icon>
+                Descripcion
+            </ion-label>
+            <ion-input id="inputdescripcionplato" type="text" [(ngModel)]="plato.descripcion"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+              <ion-label position="floating">
+                 <ion-icon name="mail"></ion-icon>
+                 Link imagen
+              </ion-label>
+              <ion-input id="inputimagenplato" type="text" [(ngModel)]="plato.imagen"></ion-input>
+            </ion-item>
+    </ion-list>
+    <ion-button color="light" (click)="agregarPlato(plato)">Agregar plato</ion-button>
+    <ion-button color="light" (click)="volver()">Volver</ion-button>
+</ion-content>

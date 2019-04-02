@@ -6,21 +6,52 @@
 
 <ion-content padding>
 
-  <ion-item>
-    <ion-label position="floating">
-        <ion-icon name="imagen"></ion-icon> Imagen
-    </ion-label>
-    <ion-input id="inputimagen"  type="text" [(ngModel)]="dieta.imagen"></ion-input>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">
+         <ion-icon name="mail"></ion-icon>
+          Nombre de la dieta
+      </ion-label>
+      <ion-input id="inputnombre" type="text" [(ngModel)]="dieta.nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="key"></ion-icon>
+        Objetivo
+      </ion-label>
+    <ion-input id="inputobjetivo"  type="text" [(ngModel)]="dieta.objetivo" ></ion-input>
   </ion-item>
-  
+
   <ion-item>
       <ion-label position="floating">
-          <ion-icon name="descripcion"></ion-icon> Descripcion
+        <ion-icon name="key"></ion-icon>
+        Link imagen
       </ion-label>
-      <ion-input id="inputdescripcion"  type="text" [(ngModel)]="dieta.descripcion"></ion-input>
+    <ion-input id="inputimagen"  type="text" [(ngModel)]="dieta.imagen" ></ion-input>
   </ion-item>
+</ion-list>
   
+<ion-list> 
+  <h1>
+    Platos
+  </h1> 
+  <ion-item *ngFor="let item of itemsPlato | async">
+     <ion-card (click)="elementoSeleccionado(item,item.key)">
+     <ion-card-header>
+       <ion-card-title>{{item.nombre}}</ion-card-title>
+       <ion-card-subtitle>{{item.descripcion}}</ion-card-subtitle>
+     </ion-card-header>
+     <ion-card-content>
+     </ion-card-content>
+     <img src={{item.imagen}}/>
+   </ion-card>
   
-    <ion-button color="light" (click)="actualizardieta(dieta)">Agregar dieta</ion-button>
+  </ion-item>
+</ion-list>  
+
+
+
+    <ion-button color="light" (click)="actualizardieta(dieta)">Actualizar dieta</ion-button>
     <ion-button color="dark" (click)="volver()">Volver</ion-button>
 </ion-content>

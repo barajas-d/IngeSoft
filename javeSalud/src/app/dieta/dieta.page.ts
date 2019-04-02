@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import { MenuController } from '@ionic/angular';
-import { NavController } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../modelos/usuario';
-import { AngularFireDatabaseModule, AngularFireList, AngularFireDatabase, AngularFireAction } from 'angularfire2/database';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { NavController, NavParams } from '@ionic/angular'; 
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dieta',
@@ -15,17 +10,17 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class DietaPage implements OnInit {
 
-  constructor(public router: Router,private database: AngularFireDatabase,private route: ActivatedRoute,private menu: MenuController,public navCtrl: NavController) { }
+  listaDietasRef$: Observable<any[]>
+  constructor(public navCtrl: NavController, private database: AngularFireDatabase) { 
+    this.listaDietasRef$ = this.database.list('dietas').valueChanges();
+  }
 
   ngOnInit() {
+    
   }
 
   atras(){
     this.navCtrl.navigateForward('nutricion');
-  }
-
-  ejerciciosClick(){
-    this.navCtrl.navigateForward('planes-ejercicios');
   }
 
 }

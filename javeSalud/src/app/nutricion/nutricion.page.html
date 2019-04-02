@@ -8,19 +8,18 @@
   <h1>Bienvenido a nutrición</h1>
 
    <ion-list>  
-     <ion-item *ngFor="let item of listaDietasRef$ | async">
-
-        <div id="cuadro-imagen"><img class="img-fluid" src={{item.imagen}} text-align: center/></div>
-        <ion-card (click)="dietaClick()">
+     <ion-item *ngFor="let item of items | async">
+        <ion-card (click)="elementoSeleccionado(item,item.key)">
         <ion-card-header>
-          <ion-card-title>{{item.nombre}}</ion-card-title>
+          <ion-card-title>{{item.descripcion}}</ion-card-title>
+          <ion-card-subtitle>{{item.nombre}}</ion-card-subtitle>
           <ion-card-subtitle>{{item.calorias}}</ion-card-subtitle>
         </ion-card-header>
-        <ion-card-content>{{item.descripcion}}</ion-card-content>
-        <div align=right>Siguiendo</div>
-
+        <ion-card-content>
+          La hamburguesa es rica en nutrientes.
+        </ion-card-content>
+        <img src={{item.imagen}}/>
       </ion-card>
-     
      </ion-item>
    </ion-list>
 

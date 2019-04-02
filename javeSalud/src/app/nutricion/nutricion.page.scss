@@ -1,5 +1,6 @@
-#cuadro-imagen{
-    width: 30%;
-    height: 30%;
-    position: relative
-}
+ion-card{
+    display: flex;
+    flex-direction: column;
+    width: 60% !important;
+    margin: 0 !important;
+  }

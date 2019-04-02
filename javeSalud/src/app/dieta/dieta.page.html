@@ -1,9 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Dieta</ion-title>
+    <ion-title>dieta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-button color="light" (click)="atras()">Atrás</ion-button>
+  <h1 align="center">Platos</h1>
+
+  <ion-list>  
+    <ion-item *ngFor="let item of listaDietasRef$ | async">
+
+       <div id="cuadro-imagen"><img class="img-fluid" src={{item.imagen}} text-align: center/></div>
+       <ion-card>
+       <ion-card-header>
+         <ion-card-title>{{item.nombre}}</ion-card-title>
+       </ion-card-header>
+       <ion-card-content>{{item.descripcion}}</ion-card-content>
+
+     </ion-card>
+    
+    </ion-item>
+  </ion-list>
+
+ <ion-button color="light" (click)="atras()">Atrás</ion-button>
 </ion-content>

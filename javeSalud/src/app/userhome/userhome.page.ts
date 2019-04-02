@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
-import { NavController } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../modelos/usuario';
-import { AngularFireDatabaseModule, AngularFireList, AngularFireDatabase, AngularFireAction } from 'angularfire2/database';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { NavController, ActionSheetController, MenuController } from '@ionic/angular';
+import { AngularFireDatabase, AngularFireList, snapshotChanges, AngularFireAction } from 'angularfire2/database';
+import { database, User } from 'firebase';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { Dieta } from '../modelos/dieta';
 import { map, switchMap } from 'rxjs/operators';
-
 
 
 @Component({
@@ -27,7 +27,6 @@ export class UserhomePage implements OnInit {
   constructor(public router: Router,private database: AngularFireDatabase,private route: ActivatedRoute,private menu: MenuController,public navCtrl: NavController) { 
     let sub = this.route.params.subscribe(params => {
       this.emaile = params['userEmail'];
-       console.log(params['userEmail']); 
      });
      this.usuario.email=this.emaile;
 
@@ -55,31 +54,14 @@ export class UserhomePage implements OnInit {
     );
   }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  openEnd() {
-    this.menu.open('end');
-  }
-
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
-  }
 
   ngOnInit() {
     this.menu.enable(true, 'first');
     this.menu.open('first');
   }
 
-  nutricionClick(){
-    this.navCtrl.navigateForward('nutricion');
-  }
-  ejerciciosClick(){
-    this.navCtrl.navigateForward('planes-ejercicios');
-  }
+  nutricionUserClick(){
+    this.router.navigate(['/nutricion',{ userEmail: this.usuario.email}]);  }
   micuentaClick(){
     this.router.navigate(['/micuenta',{ userEmail: this.usuario.email}]);
   }

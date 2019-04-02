@@ -17,8 +17,9 @@ const routes: Routes = [
   { path: 'agregardieta', loadChildren: './agregardieta/agregardieta.module#AgregardietaPageModule' },
   { path: 'nutricioneditardieta', loadChildren: './nutricioneditardieta/nutricioneditardieta.module#NutricioneditardietaPageModule' },
   { path: 'micuenta', loadChildren: './micuenta/micuenta.module#MicuentaPageModule' },
-  { path: 'planes-ejercicios', loadChildren: './planes-ejercicios/planes-ejercicios.module#PlanesEjerciciosPageModule' },
-  { path: 'dieta', loadChildren: './dieta/dieta.module#DietaPageModule' }
+  { path: 'agregarplato', loadChildren: './agregarplato/agregarplato.module#AgregarplatoPageModule' },
+  { path: 'verplatosdieta', loadChildren: './verplatosdieta/verplatosdieta.module#VerplatosdietaPageModule' },
+  { path: 'verplatosdietauser', loadChildren: './verplatosdietauser/verplatosdietauser.module#VerplatosdietauserPageModule' },
 ];
 @NgModule({
   imports: [
