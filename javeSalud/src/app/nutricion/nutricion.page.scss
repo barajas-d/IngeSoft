@@ -1,6 +1,9 @@
 ion-card{
-    display: flex;
-    flex-direction: column;
-    width: 60% !important;
-    margin: 0 !important;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 70% !important;
+  margin: 0 !important;
+}
+ion-card-subtitle{
+  text-align:justify;
+}

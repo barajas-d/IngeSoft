@@ -1,6 +1,9 @@
  ion-card{
     display: flex;
     flex-direction: column;
-    width: 60% !important;
+    width: 70% !important;
     margin: 0 !important;
+  }
+  ion-card-subtitle{
+    text-align:justify;
   }

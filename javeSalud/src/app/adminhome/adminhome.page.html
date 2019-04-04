@@ -32,10 +32,22 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item (click)="nutricionClick()">Nutrición</ion-item>
-        <ion-item>Deporte</ion-item>
-        <ion-item>¿Qué es JaveSalud?</ion-item>
-        <ion-button color="dark" (click)="salir()">Salir</ion-button>
+        <ion-item (click)="nutricionClick()">
+            <ion-icon name="nutrition"></ion-icon>
+          Nutrición
+        </ion-item>
+        <ion-item>
+            <ion-icon name="fitness"></ion-icon>
+          Deporte</ion-item>
+        <ion-item>
+            <ion-icon name="help"></ion-icon>
+          ¿Qué es JaveSalud?</ion-item>
+        
+          <ion-button 
+        color="dark" (click)="salir()">
+        <ion-icon name="power"></ion-icon>
+        Salir</ion-button>
+
       </ion-list>
     </ion-content>
   </ion-menu>

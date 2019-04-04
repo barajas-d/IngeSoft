@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
       { type: 'required', message: 'Contraseña es requerida.'},
       { type: 'minLength', message: 'Contraseña debe tener 6 o más caracteres.'},
       { type: 'maxLength', message: 'Contraseña debe ser menor a 50 caracteres.'},
-      { type: 'pattern', message: 'Por favor ingrese una contraseña válida.'}
+      { type: 'pattern', message: 'Por favor ingrese una contraseña válida (Mayúsculas, minúsculas y números).'}
     ],
   }
   usuario = {} as User;

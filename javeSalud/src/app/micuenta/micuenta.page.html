@@ -9,9 +9,10 @@
     <ion-card *ngFor="let item of items" >
       {{item.nombres}}
       <ion-card-header (click)="elementoSeleccionado(item.payload.val(),item.key)">
-        <ion-card-title>Nombres  {{item.payload.val().nombres}}</ion-card-title>
-        <ion-card-subtitle>Apellidos   {{item.payload.val().apellidos}}</ion-card-subtitle>
-        <ion-card-subtitle>Edad   {{item.payload.val().edad}}</ion-card-subtitle>
+        <ion-card-title>Nombres:  {{item.payload.val().nombres}}</ion-card-title>
+        <ion-card-subtitle>Apellidos:   {{item.payload.val().apellidos}}</ion-card-subtitle>
+        <ion-card-subtitle>Edad:   {{item.payload.val().edad}}</ion-card-subtitle>
+        <ion-card-subtitle>Correo:   {{item.payload.val().email}}</ion-card-subtitle>
       </ion-card-header>
     </ion-card>
    </ion-item>
